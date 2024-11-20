@@ -28,9 +28,10 @@ Node *addToBeginning(Node *head, char *str)
     return pNew;
 }
 
+// free the whole linked list
 void freeList(Node *head)
 {
-    // go through the list and free each node
+    // loop through linked list
     while (head)
     {
         Node *temp = head;
@@ -40,9 +41,11 @@ void freeList(Node *head)
     }
 }
 
+// writing each nodes line to specified "outputFile"
 void printOrWrite(Node *head, FILE *outputFile)
 {
     Node *current = head;
+    // loop through linked list
     while (current)
     {
         fprintf(outputFile, "%s", current->data);
@@ -50,6 +53,7 @@ void printOrWrite(Node *head, FILE *outputFile)
     }
 }
 
+// main func, arg checking, specifying input and output files
 int main(int argc, char *argv[])
 {
     if (argc > 3)
