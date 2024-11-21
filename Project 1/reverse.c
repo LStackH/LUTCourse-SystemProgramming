@@ -56,16 +56,19 @@ void printOrWrite(Node *head, FILE *outputFile)
 // main func, arg checking, specifying input and output files
 int main(int argc, char *argv[])
 {
+    // too many args
     if (argc > 3)
     {
         fprintf(stderr, "usage: reverse <input> <output>\n");
         exit(1);
     }
 
+    // initializing variables
     FILE *inputFile = NULL;
     FILE *outputFile = NULL;
     Node *head = NULL;
 
+    // 2 args, ./reverse.c "input"
     if (argc == 2)
     {
         inputFile = fopen(argv[1], "r");
@@ -76,6 +79,7 @@ int main(int argc, char *argv[])
         }
         outputFile = stdout;
     }
+    // 3 args, ./reverse.c "input" "output"
     else if (argc == 3)
     {
         // Check if input and output files are the same before opening the output file

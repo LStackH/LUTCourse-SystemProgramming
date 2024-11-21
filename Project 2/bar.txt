@@ -1,0 +1,9 @@
+this line has foo in it
+
+so does this foolish line; do you see where?
+
+even this line, which has barfood in it, will be printed.
+
+FOO BAR FOO BAR ho hoho or
+
+orfoorfoorf totoo
