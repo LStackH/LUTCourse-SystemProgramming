@@ -23,3 +23,5 @@ Using the third way is similar to the second, but it only outputs the same conte
 The program uses a linked list, to dynamically allocate more space each time a new line is added. Since the idea is to reverse the input, the linked list is perfect since we keep track of the latest inputted line, and can from there follow the list back to the "original" beginning. 
 
 In the main function, we initialize the input- and outputFile and assign them based on the given arguments. If none, it's stdin and stdout, then "input.txt" and stdout, then "input.txt" and "output.txt".
+
+Function addToBeginning

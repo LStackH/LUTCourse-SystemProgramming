@@ -11,7 +11,7 @@ void searchPrint(FILE *file, const char *search_term)
     // Read each line and check if the search term is in it
     while (getline(&line, &len, file) != -1)
     {
-        // check if occurence of the substring *search_term*, in *line*
+        // check if occurence of the substring *search_term*, in current *line*
         if (strstr(line, search_term) != NULL)
         {
             printf("%s", line);
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    // var, for what to look for
+    // holds the search term
     const char *search_term = argv[1];
 
     // 2 args, no file, search from stdin
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     // file given
     else
     {
-        // go through each file
+        // go through each file (start from i=2 to skip the call and the search term form input)
         for (int i = 2; i < argc; i++)
         {
             FILE *file = fopen(argv[i], "r");
