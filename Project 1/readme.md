@@ -1,27 +1,101 @@
-CT30A3370 Käyttöjärjestelmät ja systeemiohjelmointi
+CT30A3370 Käyttöjärjestelmät ja Systeemiohjelmointi
 
-Project 1: Warmup to C and Unix programming
+Project 1: Warmup to C and Unix Programming
 
 Author: Lukas Honka
 
-----------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 
-This project is a simple program, that takes an input and reverses it. It can display it in three different ways, depending on how the program is called. The three ways are:
+Overview:
 
-prompt> ./reverse
-prompt> ./reverse input.txt
-prompt> ./reverse input.txt output.txt
+This project is a simple C program called reverse that takes input and outputs it in reverse order. It can be used in three ways:
 
-When using the first one, the program will take input from the stdin, from the user, line by line as they press enter. To exit this, you can either press CTRL+D OR simply type "exit" and press enter, which prompts the program to stop and reverse the previous lines
+Terminal Input to Terminal Output:
 
-Using the second way, you can specify from what file it takes the input from. It will read the files content from the start, line by line, and then output it,in reverse order, to the stdout, so the terminal.
+* When you run ./reverse with no arguments, the program reads input line by line from the user and outputs the reversed lines back to the terminal. To stop entering input, press CTRL+D or type "exit" and press Enter.
 
-Using the third way is similar to the second, but it only outputs the same content, into the specified output file.
 
-----------------------------------------------------
+File Input to Terminal Output:
 
-The program uses a linked list, to dynamically allocate more space each time a new line is added. Since the idea is to reverse the input, the linked list is perfect since we keep track of the latest inputted line, and can from there follow the list back to the "original" beginning. 
+* When you run ./reverse input.txt, the program reads lines from input.txt, reverses them, and outputs the reversed content to the terminal.
 
-In the main function, we initialize the input- and outputFile and assign them based on the given arguments. If none, it's stdin and stdout, then "input.txt" and stdout, then "input.txt" and "output.txt".
 
-Function addToBeginning
+File Input to File Output:
+
+* When you run ./reverse input.txt output.txt, the program reads lines from input.txt, reverses them, and writes the output to output.txt. NOTE: Both files cannot be the same.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+How It Works:
+
+The program uses a linked list to store the input lines dynamically. Each new line is added to the beginning of the list, which means that the currently tracked beginning of the list, is the original's end. We can then follow the list back to the original start.
+
+
+Functions
+addToBeginning:
+
+* Adds a new line to the start of the linked list.
+* Allocates memory for both the new node and the string it stores.
+
+freeList:
+
+* Frees all memory used by the linked list.
+* Goes through each node, freeing both the string and the node itself.
+
+printOrWrite:
+
+* Writes the reversed lines from the linked list to the specified output (terminal or file).
+
+main:
+
+* Handles argument validation and file setup.
+* Reads input line by line, adding each line to the linked list.
+* Outputs the reversed lines and ensures proper cleanup of resources like memory and files.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Usage Examples
+Interactive Mode:
+When you type input directly into the program:
+
+Hello
+World
+
+exit
+
+Output:
+
+World
+Hello
+
+File Input to Terminal Output:
+
+When you provide an input file:
+
+Input file (input.txt):
+
+Line 1
+
+Line 2
+
+Line 3
+
+
+Command: ./reverse input.txt
+
+Output:
+
+Line 3
+
+Line 2
+
+Line 1
+
+File Input to File Output:
+
+When you specify both input and output files:
+
+Command: ./reverse input.txt output.txt
+
+The reversed content is written to output.txt
