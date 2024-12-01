@@ -1,0 +1,4 @@
+file.txt
+output.txt
+wish
+wish.c
