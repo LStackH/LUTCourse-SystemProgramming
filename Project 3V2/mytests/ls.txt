@@ -1,5 +1,7 @@
+README.md
 batch_test.txt
 input.txt
+ls.txt
 output.txt
 output2.txt
 testfolder

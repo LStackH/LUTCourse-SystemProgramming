@@ -1,6 +1,8 @@
+not a command
 ls
 pwd
 pwd > output.txt
+echo "here" & sleep 5
 cat output.txt > input.txt
 cat input.txt
 exit
