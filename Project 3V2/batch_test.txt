@@ -1,0 +1,6 @@
+ls
+pwd
+pwd > output.txt
+cat output.txt > input.txt
+cat input.txt
+exit

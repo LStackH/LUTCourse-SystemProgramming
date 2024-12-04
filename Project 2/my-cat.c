@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
             exit(1);
         }
 
-        // buffer to hold the lines
+        // buffer to hold the line
         char buffer[1024];
         // Read and print the file line by line
         while (fgets(buffer, sizeof(buffer), file) != NULL)
